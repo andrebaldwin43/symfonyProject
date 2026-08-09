@@ -2,19 +2,15 @@
 
 namespace App\Controller;
 
-use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
 
 class DashboardController extends AbstractController
 {
-    #[Route('/', name: 'dashboard')]
+    #[Route('/' , name: 'dashboard')]
     public function index(): Response
     {
-        $number = random_int(0, 100);
-
-        return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
-        );
+        return $this->render('dashboard.html.twig', []);
     }
 }
