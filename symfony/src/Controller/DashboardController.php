@@ -6,6 +6,7 @@ use App\Service\GoogleAPIService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 
 class DashboardController extends AbstractController
@@ -16,11 +17,14 @@ class DashboardController extends AbstractController
         return $this->render('dashboard.html.twig', []);
     }
 
-    #[Route('/weather', name: 'app_weather_api')]
-    public function weatherAPI(GoogleAPIService $weatherService): JsonResponse
+    #[Route('/api/weather', name: 'app_weather_api')]
+    public function weatherAPI(Request $request, GoogleAPIService $weatherService): JsonResponse
     {
+        $data = $request->toArray();
+        $zipcode = $data['inputValue'] ?? null;
+
         try {
-            $data = $weatherService->getCurrentConditions('48186');
+            $data = $weatherService->getCurrentConditions($zipcode);
             return $this->json($data);
         } catch (\Exception $e) {
             return $this->json(['error' => $e->getMessage()], 500);

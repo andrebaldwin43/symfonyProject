@@ -12,7 +12,7 @@ class GoogleAPIService
     public function __construct(HttpClientInterface $client)
     {
         $this->client = $client;
-        $this->apiKey = $_ENV['GOOGLE_API_KEY'];
+        $this->apiKey = $_ENV['GOOGLE_API_KEY'] ?? '';
     }
 
     public function getCurrentConditions(string $zipCode, string $countryCode = 'US'): array
