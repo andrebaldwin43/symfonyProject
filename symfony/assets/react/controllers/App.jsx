@@ -9,6 +9,7 @@ import darkSkyImage from '../../img/dark_sky.jpg';
 import lightRainImage from '../../img/light_rain.jpg';
 import sunnyImage from '../../img/sunny.jpg';
 import tStormImage from '../../img/thunderstorm.jpg';
+import clearImage from '../../img/clear.jpg';
 
 const BACKGROUNDS = {
   cloudy: cloudyImage,
@@ -17,13 +18,14 @@ const BACKGROUNDS = {
   lightRain: lightRainImage,
   sunny: sunnyImage,
   tStorm: tStormImage,
+  clear: clearImage,
 };
 
 const columnStyles = 'bg-slate-500 rounded hover:bg-slate-600 hover:scale-105 transition-all duration-300 '
 
 export default function App() {
     const [theme, setTheme] = useState('light');
-    const [background, setBackground] = useState('');
+    const [background, setBackground] = useState('clear');
 
     const handleToggleTheme = (newTheme) => {
         setTheme(newTheme);
