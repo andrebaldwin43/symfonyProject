@@ -28,7 +28,7 @@ export default function App() {
     const handleToggleTheme = (newTheme) => {
         setTheme(newTheme);
     };
-console.log(background)
+
     return (
     <div className={`${theme} min-h-screen  text-slate-900 dark:bg-slate-900 dark:text-white`}>
         <Navbar currentTheme={theme} onToggleTheme={handleToggleTheme} />
@@ -43,9 +43,6 @@ console.log(background)
             <div className={columnStyles}>Feature Three</div>
             <div className={columnStyles}>Feature Four</div>
         </div>
-
     </div>
-
-    
 );
 }
