@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function Weather({onSelectImage}) {
   const handleChange = (event) => {
-    setInputValue(event.target.value);
+    setInputValue('');
   };
 
   const [inputValue, setInputValue] = useState('');
@@ -58,7 +58,7 @@ function Weather({onSelectImage}) {
       case !isDaytime:
         return 'darkSky';
       default:
-        return 'sunny';
+        return 'clear';
     }
   };
 
