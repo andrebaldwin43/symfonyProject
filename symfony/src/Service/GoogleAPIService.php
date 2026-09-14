@@ -17,7 +17,7 @@ class GoogleAPIService
 
     public function getCurrentConditions(string $zipCode, string $countryCode = 'US'): array
     {
-        // Step 1: Get coordinates from the Google Geocoding API
+        // Get coordinates from the Google Geocoding API
         $url ="https://maps.googleapis.com/maps/api/geocode/xml?address={$zipCode},+{$countryCode}&key={$this->apiKey}";
 
         $result = simplexml_load_file($url);
@@ -31,7 +31,7 @@ class GoogleAPIService
         $lat = $location->lat->__toString();
         $lng = $location->lng->__toString();
 
-        // Step 2: Query the Google Weather API using coordinates
+        // Query the Google Weather API using coordinates
         $weatherResponse = $this->client->request('GET', 'https://weather.googleapis.com/v1/currentConditions:lookup', [
             'query' => [
                 'key' => $this->apiKey,
