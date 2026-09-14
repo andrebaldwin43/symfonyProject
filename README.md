@@ -1,0 +1,1 @@
+Just a fun little project that I'm currently working on. Spun up and project inside a docker container using PHP, React, Webpack as well as other technologies. Currently I have on feature that shows the weather connecting to Googles weather API but I'm working on other things.
